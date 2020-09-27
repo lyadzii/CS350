@@ -1,0 +1,19 @@
+functor
+import
+   Application
+   System
+define
+fun {Take X N}
+   if N < 1
+     then nil
+   else
+    case X
+     of nil then nil
+     [] H|T then H|{Take T N-1 }
+     end
+   end
+end
+   {System.showInfo [1 2 3]}
+   {System.showInfo {Take [1 4 3 5] 2}}
+   {Application.exit 0}
+end
