@@ -69,7 +69,7 @@ define
               end
           end
          end
-		 {Take {Reverse X nil} N}
+		 {Reverse {Take {Reverse X nil} N} nil}
       end
     end
    {System.showInfo 'Hello World!'}
