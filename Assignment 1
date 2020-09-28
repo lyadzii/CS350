@@ -43,3 +43,36 @@ end
    {System.showInfo {Merge [1 2 3 5] [2 3 6 7]}}
    {Application.exit 0}
 end
+
+1.3///
+
+functor
+import
+   Application
+   System
+define
+   fun {Last X N}
+      local Reverse Take in
+         fun{Reverse Remainder Partial}
+           case Remainder 
+			of nil then Partial 
+			[] H|T then {Reverse T H|Partial} end 
+		 end
+		 
+		 fun {Take Y M}
+          if M < 1
+            then nil
+          else
+            case Y
+              of nil then nil
+              [] H|T then H|{Take T M-1 }
+              end
+          end
+         end
+		 {Take {Reverse X nil} N}
+      end
+    end
+   {System.showInfo 'Hello World!'}
+   {System.showInfo {Last [1 3 4 5 ] 3}}
+   {Application.exit 0}
+end
